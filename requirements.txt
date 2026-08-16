@@ -1,0 +1,15 @@
+# Núcleo (bandits, simulação, features)
+numpy>=1.24
+pandas>=1.5
+scikit-learn>=1.1
+
+# Visualização (EDA e comparação de políticas nos notebooks)
+matplotlib>=3.6
+
+# MLOps
+mlflow>=2.9
+
+# API demonstrável
+fastapi>=0.110
+uvicorn>=0.27
+pydantic>=2.5

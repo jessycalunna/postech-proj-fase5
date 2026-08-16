@@ -1,0 +1,20 @@
+[project]
+name = "fiap-fase5-bandits"
+version = "1.0.0"
+description = "Plataforma de Experimentação Adaptativa (Multi-Armed Bandits), FIAP 7MLET Fase 5"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=1.5",
+    "scikit-learn>=1.1",
+    "matplotlib>=3.6",
+    "mlflow>=2.9",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+    "pydantic>=2.5",
+]
+
+[tool.setuptools]
+packages = ["bandits"]
+package-dir = { "" = "src" }
