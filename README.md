@@ -75,9 +75,9 @@ serviço:
 | Inadimplente e engajado (default sim, sucesso anterior) | Cashback rebaixado para No Incentive | Sim. A regra de conduta impede incentivo a inadimplente, mesmo quando a métrica indicaria Cashback. |
 | Alto valor engajado (4 contatos) | Cashback | Sim. Cliente engajado; Cashback é a oferta de maior recompensa esperada. |
 
-O conjunto completo de avaliação tem 23 casos (típicos, de borda, por segmento e
-adversariais) em `data/golden_set/evaluation_cases.jsonl`, validados no Notebook
-03. A tabela acima é um recorte de cinco exemplos representativos.
+Os cinco casos cobrem cliente engajado, cliente novo, perfil conservador,
+inadimplência e alto valor, incluindo um caso em que a regra de conduta
+prevalece sobre a métrica.
 
 ## 6. Estrutura do repositório
 
@@ -88,8 +88,7 @@ fiap-fase5/
 ├── pyproject.toml
 ├── notebooks/
 │   ├── 01_eda_e_tratamento.py          # EDA e tratamento de dados
-│   ├── 02_bandits_baseline_mlflow.py   # simulação, baseline, Thompson, MLflow
-│   └── 03_avaliacao_golden_set_rag.py  # avaliação, golden set e assistente
+│   └── 02_bandits_baseline_mlflow.py   # simulação, baseline, Thompson, MLflow
 ├── src/bandits/
 │   ├── preprocess.py       # leitura e controle de vazamento
 │   ├── synthetic.py        # ambiente de simulação (contexto, mundo, log)
@@ -97,13 +96,8 @@ fiap-fase5/
 │   ├── simulator.py        # simulação online e métricas
 │   ├── recommender.py      # cliente para oferta
 │   └── assistant.py        # regras de conduta e explicação da decisão
-├── service/
-│   └── app.py              # API FastAPI (cliente para oferta)
-├── scripts/
-│   └── build_golden_set.py # gera o golden set
-└── data/
-    └── golden_set/
-        └── evaluation_cases.jsonl
+└── service/
+    └── app.py              # API FastAPI (cliente para oferta)
 ```
 
 ## 7. Como executar
@@ -118,7 +112,6 @@ Execute, em ordem, os notebooks em `notebooks/`:
 1. `01_eda_e_tratamento`: cria a tabela `bank_clean`.
 2. `02_bandits_baseline_mlflow`: simula, compara baseline e Thompson, registra
    no MLflow e salva as taxas aprendidas e as tabelas de resultado.
-3. `03_avaliacao_golden_set_rag`: avaliação e golden set.
 
 ### Localmente (API)
 
